@@ -15,6 +15,6 @@
 
 **stat.bib** Bibliographie de base pour le paragraphe *stat* (R, quelques packages...)
 
-**jama.cls** Fichier de style pour la bibliographie
+**jama.cls** Fichier de style pour la bibliographie <https://www.zotero.org/styles>
 
 **tete.tex** En-tête *Lua*$\LaTeX$ pour une sortie en PDF.

@@ -1,0 +1,125 @@
+---
+title: ""
+subtitle: ""
+author: "Philippe MICHEL"
+date: "05 novembre 2021"
+thanks: "Travail de "
+always_allow_html: true
+output:
+  pdf_document:
+    keep_tex: yes
+    latex_engine: lualatex
+    toc: yes
+    citation_package: biblatex
+  html_document:
+    df_print: kable
+    toc: yes
+    toc_float: yes
+    math: katex
+    theme: journal
+    anchor_sections: yes
+    citation_package: biblatex
+    highlight: tango
+    fig_width: 8
+    fig_height: 6
+    fig_caption: yes
+  prettydoc::html_pretty:
+    theme: tactile
+    toc: yes
+  word_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+bibliography: stat.bib
+link-citations: yes
+---
+
+# Description des données
+
+```{r setup, include= FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, cache = FALSE,
+#  knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE,
+# #
+ fig.width = 7,
+ fig.asp = 0.8,
+ out.width = "100%"
+ )
+expx  <- FALSE
+```
+
+```{r info}
+library(prettydoc)
+library(forcats)
+library(stringr)
+library(treemap)
+library(missMDA)
+library(FactoMineR)
+library(epiDisplay)
+library(factoextra)
+#library(baseph)
+library(knitr)
+library(finalfit)
+library(Hmisc)
+library(tidyr)
+library(ggplot2)
+library(kableExtra)
+library(forestmodel)
+library(lubridate)
+library(dplyr)
+library(table1)
+library(janitor)
+library(parameters)
+library(see)
+library(binom)
+library(questionr)
+# sessionInfo()
+```
+
+rm(list=ls())
+```{r import}
+tt <- debutph("datas/.csv") %>% 
+    select(-1)
+nn <- debutph("datas/titres.csv")
+nomv <- nn$titre
+#
+exp = FALSE # N'exporte pas les tableaux en csv.
+```
+
+
+La base de données comprend  `r dim(tt)[1]` cas pour `r dim(tt)[2]`  variables. 
+
+
+
+## Description des données
+
+```{r tabdemo}
+tab1ph(tt,nomv = nomv, titre = "Données démographiques", export = expx)
+```
+
+
+```{r pyr, fig.cap="Pyramide des âges"}
+epiDisplay::pyramid(
+  age = tt$age,
+  sex = tt$sexe,
+  binwidth = 10,
+  col.gender = c("pink", "skyblue1"),
+  main = "Pyramide des âges",
+  printTable = FALSE
+)
+```
+## Critère principal
+
+## Critères secondaires
+
+### CS 1
+
+#### CS 2
+
+## Technique 
+
+**Petit paragraphe à ajouter en fin de “matériel & méthode”**
+
+Les données discrètes ont été décrites par leur fréquence exprimée en pourcentage avec son intervalle de confiance à 95 % et ont été comparées par le test exact de Fisher vu la faible effectif. Les intervalles de confiance n’ont été réalisés qu’après transformation angulaire. Les données numériques ont été décrites par leur moyenne (avec son intervalle de confiance à 95 % calculé par bootstrap) et l’écart-type. Les données continues ont été comparées par le test de Student après vérification de l’égalité des variances. L’analyse factorielle a été réalisée en analyse des correspondances multiples après imputation des données manquantes, possible ici en raison du faible nombre de celles-ci.
+Les statistiques ont été réalisées grâce au logiciel R[@rstat] avec en particulier les packages du Tidyverse[@tidy] & factoMineR[@facto].
+
+# References

@@ -1,0 +1,21 @@
+#!/bin/bash
+
+cd /home/philm/actif/
+# création du dossier pour le projet 
+read -p "Nom du projet ? " nrap
+mkdir $nrap
+cd $nrap
+#Création des sous-dossiers
+mkdir doc
+mkdir datas
+mkdir R
+# Importation des documents en copiant des modèles
+ln -s ~/pratique/modèles/tete.tex
+ln -s ~/pratique/modèles/stat.bib
+cp  ~/pratique/modèles/plan_analyse_modele.Rmd ./
+cp ~/pratique/modèles/rapport2.Rmd ./
+# Nouveau nom pour le fichier Rmarkdown & le plan d'analyse
+zz="${nrap}_rapport.Rmd"
+mv ./rapport2.Rmd $zz
+zzp="${nrap}_plan.Rmd"
+mv ./plan_analyse_modele.Rmd $zzp
