@@ -3,32 +3,42 @@ title: ""
 subtitle: "Plan d'analyse statistique"
 author: "Philippe MICHEL"
 date: "`r format(Sys.Date(),'%d %B %Y')`"
-bibliography: stat.bib
-lang: fr
-link-citations: true
 output:
-  html_document:
-    df_print: paged
-    toc: yes
-    toc_float: 
-        collapsed: false
-    theme: lumen
-    anchor_sections: TRUE
   pdf_document:
-    includes:
-      in_header: tete.tex
-    keep_tex: yes
     latex_engine: lualatex
-    toc: yes  
-  html_notebook:
-    fig_caption: yes
-    theme: spacelab
-  prettydoc::html_pretty:
-    theme: architect
-    highlight: github
     toc: yes
-editor_options:
-  chunk_output_type: console
+    number_sections: no
+    keep_tex: yes
+    df_print: kable
+    highlight: tango
+    citation_package: biblatex
+  html_document:
+    toc: yes
+    df_print: paged
+header-includes:
+- \usepackage[output-decimal-marker={,},per-mode = symbol,mode = text]{siunitx}
+- \usepackage[french]{varioref}
+documentclass: scrartcl
+mainfont: Faune
+mainfontoptions:
+- Ligatures = TeX
+- Ligatures = Common
+sansfont: Faune
+sansfontoptions:
+- Ligatures = TeX
+- Ligatures = Common
+monofont: Fira Mono
+mathfont: Fira Mono
+monofontoptions: Numbers = Monospaced
+mathfontoptions: Numbers = Monospaced
+colorlinks: yes
+fontsize: 10pt
+papersize: a4
+lang: fr
+subtitle: Rappport Statistique
+cite-method: biblatex
+bibliography: stat.bib
+license: CC BY-SA
 ---
 
 ```{r setup, include= FALSE}

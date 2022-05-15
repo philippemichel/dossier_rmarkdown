@@ -1,51 +1,45 @@
 ---
-title: ""
-subtitle: ""
+title: "Mon beau Rapport"
 author: "Philippe MICHEL"
-date: "05 novembre 2021"
-thanks: "Travail de "
-always_allow_html: true
+thanks: "Travail de L. Dupont (Néphrologie)"
+date: "`r Sys.Date()`"
 output:
   pdf_document:
-    keep_tex: yes
     latex_engine: lualatex
     toc: yes
+    number_sections: no
+    keep_tex: yes
+    df_print: kable
+    highlight: tango
     citation_package: biblatex
   html_document:
-    df_print: kable
     toc: yes
-    toc_float: yes
-    math: katex
-    theme: journal
-    anchor_sections: yes
-    citation_package: biblatex
-    highlight: tango
-    fig_width: 8
-    fig_height: 6
-    fig_caption: yes
-  prettydoc::html_pretty:
-    theme: tactile
-    toc: yes
-  word_document:
-    toc: yes
-editor_options:
-  chunk_output_type: console
+    df_print: paged
+header-includes:
+- \usepackage[output-decimal-marker={,},per-mode = symbol,mode = text]{siunitx}
+- \usepackage[french]{varioref}
+documentclass: scrartcl
+mainfont: Faune
+mainfontoptions:
+- Ligatures = TeX
+- Ligatures = Common
+sansfont: Faune
+sansfontoptions:
+- Ligatures = TeX
+- Ligatures = Common
+monofont: Fira Mono
+mathfont: Fira Mono
+monofontoptions: Numbers = Monospaced
+mathfontoptions: Numbers = Monospaced
+colorlinks: yes
+fontsize: 10pt
+papersize: a4
+lang: fr
+subtitle: Rappport Statistique
+cite-method: biblatex
 bibliography: stat.bib
-link-citations: yes
+license: CC BY-SA
 ---
-
-# Description des données
-
-```{r setup, include= FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, cache = FALSE,
-#  knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE,
-# #
- fig.width = 7,
- fig.asp = 0.8,
- out.width = "100%"
- )
-expx  <- FALSE
-```
 
 ```{r info}
 library(prettydoc)
