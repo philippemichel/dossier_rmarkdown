@@ -7,7 +7,7 @@
 
 **Tous les fichiers nécessaires pour un travail statistique simple en recherche clinique.**
 
-**plan_analyse** Squelette de base d'un plan d'analyse (RMarkdown)
+**plan_analyse** Squelette de base d'un plan d'analyse en RMarkdown & quarto (esssai)
 
 **rapport_statistique** Squelette de base du rapport statistique (RMarkdown)
 
